@@ -13,7 +13,6 @@ class Query
     headers.each { |key, value| request[key] = value }
 
     self.response = http.request(request)
-    response
   end
 
   def resp_code
@@ -25,7 +24,7 @@ class Query
   end
 
   def resp_headers
-    response.each_header { |key, value| p "#{key}: #{value}" } if response
+    response.each_header { } if response
   end
   
   private

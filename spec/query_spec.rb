@@ -3,7 +3,6 @@ RSpec.describe Query do
 
   describe '#get' do
     it 'sends GET request' do
-
       expect(subject.uri).to eq URI('https://vault77.kz/ruby')
       expect(subject.response.class).to eq Net::HTTPOK
     end
@@ -42,9 +41,9 @@ RSpec.describe Query do
 
   describe '#resp_headers' do
     it 'returns response headers' do
-      allow(subject.response).to receive(:each_header).and_return('a: b')
+      allow(subject.response).to receive(:each_header).and_return({"HEADER": ["value"]})
 
-      expect(subject.resp_headers).to eq 'a: b'
+      expect(subject.resp_headers).to eq ({"HEADER": ["value"]})
     end
   end
 end
